@@ -1,3 +1,79 @@
 from django.db import models
 
 # Create your models here.
+
+
+class Department(models.Model):
+    name = models.CharField("назва кафедри", max_length=200)
+    head = models.CharField("завідувач кафедри", max_length=200)
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "кафедра"
+
+    def __str__(self):
+        return self.name
+
+
+class Program(models.Model):
+    name = models.CharField("назва спеціальності", max_length=200)
+    code = models.CharField("код спеціальності", max_length=200)
+    description = models.TextField("короткий опис")
+    coordinator_name = models.CharField("координатор набору", max_length=200)
+    coordinator_email = models.EmailField("контакт координатора", max_length=200)
+    department = models.ForeignKey(
+        "Department",
+        on_delete=models.PROTECT,
+        related_name="programs",
+        verbose_name="випускова кафедра",
+    )
+    disciplines = models.TextField(
+        "дисципліни", blank=True, help_text="Кожна дисципліна — з нового рядка"
+    )
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "спеціальність"
+
+    def __str__(self):
+        return self.name
+
+    @property
+    def disciplines_list(self):
+        result = []
+        for line in self.disciplines.splitlines():
+            clean_line = line.strip()
+            if clean_line:
+                result.append(clean_line)
+        return result
+
+
+class Teacher(models.Model):
+    name = models.CharField("ім'я викладача", max_length=200)
+    position = models.CharField("посада", max_length=200)
+    degree = models.CharField("науковий ступінь", max_length=200)
+    department = models.ForeignKey(
+        "Department",
+        on_delete=models.PROTECT,
+        related_name="teachers",
+        verbose_name="Кафедра",
+    )
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+
+class HomePageContent(models.Model):
+    title = models.CharField("назва факультету", max_length=200)
+    about = models.TextField("опис факультету")
+    contacts = models.TextField("контакти")
+
+    class Meta:
+        verbose_name = "текст головної сторінки"
+        # verbose_name_plural = "текст головної сторінки"
+
+    def __str__(self):
+        return self.title
