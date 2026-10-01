@@ -70,6 +70,7 @@ class HomePageContent(models.Model):
     title = models.CharField("назва факультету", max_length=200)
     about = models.TextField("опис факультету")
     contacts = models.TextField("контакти")
+    updated_at = models.DateTimeField("оновлено", auto_now=True)
 
     class Meta:
         verbose_name = "текст головної сторінки"
