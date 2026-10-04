@@ -1,0 +1,6 @@
+{% for program in programs %}
+  <h2>{{ program.name }}</h2>
+  <p>Код спеціальності: {{ program.code }}</p>
+{% empty %}
+  <p>Спеціальностей поки немає. Дані буде додано пізніше.</p>
+{% endfor %}
