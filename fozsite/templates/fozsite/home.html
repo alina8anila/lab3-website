@@ -1,0 +1,9 @@
+{% if content %}
+  <h1>{{ content.title }}</h1>
+  <p>{{ content.about }}</p>
+  <h2>Контакти</h2>
+  <p>{{ content.contacts }}</p>
+{% else %}
+  <h1>ФОЗ НаУКМА</h1>
+  <p>Текст головної сторінки ще не заповнено в адмінці.</p>
+{% endif %}
