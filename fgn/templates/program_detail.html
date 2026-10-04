@@ -2,6 +2,7 @@
 {% block title %}{{ program.name }} - ФГН НаУКМА{% endblock %}
 {% block content %}
   <h1>{{ program.name }}</h1>
+  <p>Рівень освіти: {{ program.get_level_display }}</p>
   <p>Освітня програма: {{ program.code }}</p>
   <h2>Кафедра</h2>
   <p><a href="{% url 'department_detail' program.department.pk %}">{{ program.department.name }}</a></p>

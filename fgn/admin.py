@@ -20,8 +20,8 @@ class TeacherAdmin(admin.ModelAdmin):
 
 @admin.register(Program)
 class ProgramAdmin(admin.ModelAdmin):
-    list_display = ("name", "code", "department", "coordinator_name")
-    list_filter = ("department",)
+    list_display = ("name", "level", "code", "department", "coordinator_name")
+    list_filter = ("department", "level")
     search_fields = ("name", "code", "coordinator_name")
 
 

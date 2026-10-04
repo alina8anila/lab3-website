@@ -17,7 +17,18 @@ class Department(models.Model):
 
 
 class Program(models.Model):
+    class Level(models.TextChoices):
+        BACHELOR = "bachelor", "бакалаврський"
+        MASTER = "master", "магістерський"
+        PHD = "phd", "PhD"
+
     name = models.CharField("назва освітньої програми", max_length=200)
+    level = models.CharField(
+        "рівень освіти",
+        max_length=20,
+        choices=Level.choices,
+        default=Level.BACHELOR,
+    )
     code = models.CharField("код освітньої програми", max_length=200)
     description = models.TextField("короткий опис")
     coordinator_name = models.CharField("координатор набору", max_length=200)

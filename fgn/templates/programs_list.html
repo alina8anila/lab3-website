@@ -5,6 +5,7 @@
   {% for program in programs %}
     <div class="card">
       <h2><a href="{% url 'program_detail' program.pk %}">{{ program.name }}</a></h2>
+      <p>Рівень освіти: {{ program.get_level_display }}</p>
       <p>Освітня програма: {{ program.code }}</p>
     </div>
   {% empty %}
