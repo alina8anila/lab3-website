@@ -17,8 +17,8 @@ class Department(models.Model):
 
 
 class Program(models.Model):
-    name = models.CharField("назва спеціальності", max_length=200)
-    code = models.CharField("код спеціальності", max_length=200)
+    name = models.CharField("назва освітньої програми", max_length=200)
+    code = models.CharField("код освітньої програми", max_length=200)
     description = models.TextField("короткий опис")
     coordinator_name = models.CharField("координатор набору", max_length=200)
     coordinator_email = models.EmailField("контакт координатора", max_length=200)
@@ -34,8 +34,8 @@ class Program(models.Model):
 
     class Meta:
         ordering = ["name"]
-        verbose_name = "спеціальність"
-        verbose_name_plural = "спеціальності"
+        verbose_name = "освітня програма"
+        verbose_name_plural = "освітні програми"
 
     def __str__(self):
         return self.name

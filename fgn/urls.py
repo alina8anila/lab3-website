@@ -1,6 +1,6 @@
 from django.urls import path
 
-from fozsite import views
+from fgn import views
 
 urlpatterns = [
     path("", views.home, name="home"),

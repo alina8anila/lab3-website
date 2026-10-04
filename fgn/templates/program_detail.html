@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ program.name }} - ФГН НаУКМА{% endblock %}
+{% block content %}
+  <h1>{{ program.name }}</h1>
+  <p>Освітня програма: {{ program.code }}</p>
+  <h2>Кафедра</h2>
+  <p><a href="{% url 'department_detail' program.department.pk %}">{{ program.department.name }}</a></p>
+  {% if program.coordinator_name %}
+    <h2>Координатор набору</h2>
+    <p>{{ program.coordinator_name }}</p>
+  {% endif %}
+  {% if program.coordinator_email %}
+    <p>{{ program.coordinator_email }}</p>
+  {% endif %}
+  {% if program.description %}
+    <h2>Короткий опис</h2>
+    <p>{{ program.description }}</p>
+  {% endif %}
+  <h2>Дисципліни</h2>
+  <ul>
+    {% for discipline in program.disciplines_list %}
+      <li>{{ discipline }}</li>
+    {% empty %}
+      <li>Дисципліни не вказані.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

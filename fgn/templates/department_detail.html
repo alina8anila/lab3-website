@@ -1,16 +1,18 @@
 {% extends "base.html" %}
-{% block title %}{{ department.name }} - ФОЗ НаУКМА{% endblock %}
+{% block title %}{{ department.name }} - ФГН НаУКМА{% endblock %}
 {% block content %}
   <h1>{{ department.name }}</h1>
-  <p>Завідувач: {{ department.head }}</p>
-  <h2>Спеціальності кафедри</h2>
+  {% if department.head %}
+    <p>Завідувач: {{ department.head }}</p>
+  {% endif %}
+  <h2>Освітні програми кафедри</h2>
   {% for program in department.programs.all %}
     <div class="card">
       <h3><a href="{% url 'program_detail' program.pk %}">{{ program.name }}</a></h3>
-      <p>Код спеціальності: {{ program.code }}</p>
+      <p>Освітня програма: {{ program.code }}</p>
     </div>
   {% empty %}
-    <p>Спеціальностей не закріплено.</p>
+    <p>Освітніх програм не закріплено.</p>
   {% endfor %}
   <h2>Викладачі</h2>
   {% for teacher in department.teachers.all %}

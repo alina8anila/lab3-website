@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from fozsite.models import Department, HomePageContent, Program
+from fgn.models import Department, HomePageContent, Program
 
 
 def programs_list(request):

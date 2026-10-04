@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from fozsite.models import Department, HomePageContent, Program, Teacher
+from fgn.models import Department, HomePageContent, Program, Teacher
 
 # Register your models here.
 
