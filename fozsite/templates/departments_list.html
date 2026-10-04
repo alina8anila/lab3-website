@@ -3,7 +3,7 @@
 {% block content %}
   {% for department in departments %}
     <div class="card">
-      <h2>{{ department.name }}</h2>
+      <h2><a href="{% url 'department_detail' department.pk %}">{{ department.name }}</a></h2>
       <p>Завідувач: {{ department.head }}</p>
     </div>
   {% empty %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from fozsite.models import Department, HomePageContent, Program
 
@@ -24,3 +24,16 @@ def departments_list(request):
 def home(request):
     homepage_text = HomePageContent.objects.first()
     return render(request, "home.html", {"content": homepage_text})
+
+
+def program_detail(request, pk):
+    program = get_object_or_404(Program, pk=pk)
+    return render(request, "program_detail.html", {"program": program})
+
+
+def department_detail(request, pk):
+    department = get_object_or_404(
+        Department,
+        pk=pk,
+    )
+    return render(request, "department_detail.html", {"department": department})
