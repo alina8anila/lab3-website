@@ -9,6 +9,7 @@
   {% for program in department.programs.all %}
     <div class="card">
       <h3><a href="{% url 'program_detail' program.pk %}">{{ program.name }}</a></h3>
+      <p>Рівень освіти: {{ program.get_level_display }}</p>
       <p>Освітня програма: {{ program.code }}</p>
     </div>
   {% empty %}
