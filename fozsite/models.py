@@ -10,6 +10,7 @@ class Department(models.Model):
     class Meta:
         ordering = ["name"]
         verbose_name = "кафедра"
+        verbose_name_plural = "кафедри"
 
     def __str__(self):
         return self.name
@@ -34,6 +35,7 @@ class Program(models.Model):
     class Meta:
         ordering = ["name"]
         verbose_name = "спеціальність"
+        verbose_name_plural = "спеціальності"
 
     def __str__(self):
         return self.name
@@ -61,6 +63,8 @@ class Teacher(models.Model):
 
     class Meta:
         ordering = ["name"]
+        verbose_name = "викладач"
+        verbose_name_plural = "викладачі"
 
     def __str__(self):
         return self.name
@@ -74,7 +78,7 @@ class HomePageContent(models.Model):
 
     class Meta:
         verbose_name = "текст головної сторінки"
-        # verbose_name_plural = "текст головної сторінки"
+        verbose_name_plural = "текст головної сторінки"
 
     def __str__(self):
         return self.title
