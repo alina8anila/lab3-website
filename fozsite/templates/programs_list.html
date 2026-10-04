@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Спеціальності у ФОЗ{% endblock %}
+{% block content %}
+   {% for program in programs %}
+    <div class="card">
+      <h2>{{ program.name }}</h2>
+      <p>Код спеціальності: {{ program.code }}</p>
+    </div>
+  {% empty %}
+    <p>Спеціальностей поки немає. Дані буде додано пізніше.</p>
+  {% endfor %}
+{% endblock %}
