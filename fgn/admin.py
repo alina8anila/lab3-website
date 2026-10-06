@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from fgn.models import Department, HomePageContent, Program, Teacher
+from fgn.models import Department, ExchangeProgram, HomePageContent, Program, Teacher
 
 # Register your models here.
 
@@ -28,3 +28,10 @@ class ProgramAdmin(admin.ModelAdmin):
 @admin.register(HomePageContent)
 class HomePageContentAdmin(admin.ModelAdmin):
     list_display = ("title", "updated_at")
+
+
+@admin.register(ExchangeProgram)
+class ExchangeProgramAdmin(admin.ModelAdmin):
+    list_display = ("university", "language", "places", "deadline", "description")
+    list_filter = ("language", "university")
+    search_fields = ("university", "language", "description")

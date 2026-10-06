@@ -26,4 +26,101 @@ class Migration(migrations.Migration):
                 'ordering': ['deadline'],
             },
         ),
+        
+        migrations.RunSQL(
+            sql=[
+                """
+                INSERT INTO fgn_exchangeprogram
+                    (university, language, places, deadline, description)
+                VALUES (
+                    'Uniwersytet Warszawski, Польща',
+                    'польська, англійська',
+                    '5',
+                    '2026-11-15',
+                    'Академічний обмін за програмою Erasmus+. Навчання польською та англійською мовами у Варшаві.'
+                )
+                """,
+                """
+                INSERT INTO fgn_exchangeprogram
+                    (university, language, places, deadline, description)
+                VALUES (
+                    'KU Leuven (Бельгія)',
+                    'English',
+                    '2 місця',
+                    '2026-12-01',
+                    'Семестровий курс у KU Leuven за програмою Erasmus+. Навчання англійською мовою.'
+                )
+                """,
+                """
+                INSERT INTO fgn_exchangeprogram
+                    (university, language, places, deadline, description)
+                VALUES (
+                    'Vilnius University, Литва',
+                    'англійська',
+                    'до 4',
+                    '2026-10-20',
+                    'Навчання у Вільнюсському університеті англійською мовою. Програма відкрита для студентів гуманітарних спеціальностей.'
+                )
+                """,
+                """
+                INSERT INTO fgn_exchangeprogram
+                    (university, language, places, deadline, description)
+                VALUES (
+                    'Uniwersytet Jagielloński, Польща',
+                    'Польська, Англійська',
+                    '3',
+                    '2026-11-15',
+                    'Обмін у Ягеллонському університеті, одному з найдавніших університетів Європи. Курси читаються польською та англійською мовами.'
+                )
+                """,
+                """
+                INSERT INTO fgn_exchangeprogram
+                    (university, language, places, deadline, description)
+                VALUES (
+                    'University of Tartu - Естонія',
+                    'англійська, естонська',
+                    '2',
+                    '2027-01-10',
+                    'Навчання в Університеті Тарту з можливістю вибору англомовних та естономовних курсів.'
+                )
+                """,
+                """
+                INSERT INTO fgn_exchangeprogram
+                    (university, language, places, deadline, description)
+                VALUES (
+                    'Masaryk University, Чехія',
+                    'англійська',
+                    '1 місце',
+                    '2026-09-30',
+                    'Семестр у Масариковому університеті в Брно за угодою про академічну мобільність. Навчання англійською мовою.'
+                )
+                """,
+            ],
+            reverse_sql=[
+                """
+                DELETE FROM fgn_exchangeprogram
+                WHERE university = 'Uniwersytet Warszawski, Польща'
+                """,
+                """
+                DELETE FROM fgn_exchangeprogram
+                WHERE university = 'KU Leuven (Бельгія)'
+                """,
+                """
+                DELETE FROM fgn_exchangeprogram
+                WHERE university = 'Vilnius University, Литва'
+                """,
+                """
+                DELETE FROM fgn_exchangeprogram
+                WHERE university = 'Uniwersytet Jagielloński, Польща'
+                """,
+                """
+                DELETE FROM fgn_exchangeprogram
+                WHERE university = 'University of Tartu - Естонія'
+                """,
+                """
+                DELETE FROM fgn_exchangeprogram
+                WHERE university = 'Masaryk University, Чехія'
+                """,
+            ],
+        ),
     ]
