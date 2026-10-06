@@ -295,7 +295,7 @@ def delete_data(apps, schema_editor):
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("fgn", "0002_alter_program_options_program_level_and_more"),
+        ("fgn", "0002_program_level"),
     ]
 
     operations = [

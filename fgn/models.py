@@ -3,6 +3,22 @@ from django.db import models
 # Create your models here.
 
 
+class ExchangeProgram(models.Model):
+    university = models.CharField("університет", max_length=200)
+    language = models.CharField("мови навчання", max_length=200)
+    places = models.CharField("кількість місць", max_length=200)
+    deadline = models.DateField("дедлайн подачі")
+    description = models.TextField("опис")
+
+    class Meta:
+        ordering = ["deadline"]
+        verbose_name = "програма обміну"
+        verbose_name_plural = "програми обміну"
+
+    def __str__(self):
+        return self.university
+
+
 class Department(models.Model):
     name = models.CharField("назва кафедри", max_length=200)
     head = models.CharField("завідувач кафедри", max_length=200)
