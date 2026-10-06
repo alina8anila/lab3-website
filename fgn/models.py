@@ -5,8 +5,9 @@ from django.db import models
 
 class ExchangeProgram(models.Model):
     university = models.CharField("університет", max_length=200)
+    country = models.CharField("країна", max_length=100, default="")
     language = models.CharField("мови навчання", max_length=200)
-    places = models.CharField("кількість місць", max_length=200)
+    places = models.PositiveIntegerField("кількість місць")
     deadline = models.DateField("дедлайн подачі")
     description = models.TextField("опис")
 
@@ -16,7 +17,7 @@ class ExchangeProgram(models.Model):
         verbose_name_plural = "програми обміну"
 
     def __str__(self):
-        return self.university
+        return f"{self.university} ({self.country})"
 
 
 class Department(models.Model):
