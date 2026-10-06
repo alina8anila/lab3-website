@@ -115,3 +115,22 @@ p {
     font-size: 26px;
   }
 }
+
+.status {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.status-open {
+  background: #e4f3e8;
+  color: #1a7a3c;
+}
+
+.status-closed {
+  background: #fde8e8;
+  color: #b02a2a;
+}

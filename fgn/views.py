@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from fgn.models import Department, HomePageContent, Program
+from fgn.models import Department, ExchangeProgram, HomePageContent, Program
 
 
 def programs_list(request):
@@ -37,3 +37,12 @@ def department_detail(request, pk):
         pk=pk,
     )
     return render(request, "department_detail.html", {"department": department})
+
+
+def exchange(request):
+    programs = ExchangeProgram.objects.all()
+    return render(
+        request,
+        "exchange.html",
+        {"programs": programs},
+    )

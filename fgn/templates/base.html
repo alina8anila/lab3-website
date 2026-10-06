@@ -19,6 +19,8 @@
                href="{% url 'programs_list' %}">Освітні програми</a>
             <a class="nav-link{% if 'department' in page %} active{% endif %}"
                href="{% url 'departments_list' %}">Кафедри</a>
+            <a class="nav-link{% if 'exchange' in page %} active{% endif %}"
+               href="{% url 'exchange' %}">Програми обміну</a>
           {% endwith %}
         </nav>
       </div>
