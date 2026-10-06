@@ -1,0 +1,44 @@
+from django.contrib import admin
+
+from fgn.models import Department, ExchangeProgram, HomePageContent, Program, Teacher
+
+# Register your models here.
+
+
+@admin.register(Department)
+class DepartmentAdmin(admin.ModelAdmin):
+    list_display = ("name", "head")
+    search_fields = ("name", "head")
+
+
+@admin.register(Teacher)
+class TeacherAdmin(admin.ModelAdmin):
+    list_display = ("name", "position", "degree", "department")
+    search_fields = ("name", "position", "degree", "department")
+    list_filter = ("degree", "department")
+
+
+@admin.register(Program)
+class ProgramAdmin(admin.ModelAdmin):
+    list_display = ("name", "level", "code", "department", "coordinator_name")
+    list_filter = ("department", "level")
+    search_fields = ("name", "code", "coordinator_name")
+
+
+@admin.register(HomePageContent)
+class HomePageContentAdmin(admin.ModelAdmin):
+    list_display = ("title", "updated_at")
+
+
+@admin.register(ExchangeProgram)
+class ExchangeProgramAdmin(admin.ModelAdmin):
+    list_display = (
+        "university",
+        "country",
+        "language",
+        "places",
+        "deadline",
+        "description",
+    )
+    list_filter = ("language", "university", "country")
+    search_fields = ("university", "country", "description")

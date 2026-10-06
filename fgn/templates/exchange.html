@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Програми академічного обміну ФГН{% endblock %}
+{% block content %}
+  <h1>Програми академічного обміну</h1>
+  {% for program in programs %}
+    <div class="card">
+      <h2>
+        {{ program.university }}
+        {% if program.is_open %}
+          <span class="status status-open">Прийом триває</span>
+        {% else %}
+          <span class="status status-closed">Прийом завершено</span>
+        {% endif %}
+      </h2>
+      <p>Країна: {{ program.country }}</p>
+      <p>Мови навчання: {{ program.language }}</p>
+      <p>Кількість місць: {{ program.places }}</p>
+      <p>Дедлайн: {{ program.deadline|date:"d.m.Y" }}</p>
+      <p>{{ program.description }}</p>
+    </div>
+  {% empty %}
+    <p>Програм обміну поки немає. Дані буде додано пізніше.</p>
+  {% endfor %}
+{% endblock %}
