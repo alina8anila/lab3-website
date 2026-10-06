@@ -12,7 +12,10 @@ def to_int(apps, schema_editor):
 def to_text(apps, schema_editor):
     ExchangeProgram = apps.get_model("fgn", "ExchangeProgram")
     for program in ExchangeProgram.objects.all():
-        program.places =f"{program.places} місць"
+        n = int(program.places);
+        if program.places==1: program.places =f"{n} місце"
+        elif n <= 4: program.places =f"{n} місця"
+        else: program.places =f"{n} місць"
         program.save(update_fields=["places"])
 
 
